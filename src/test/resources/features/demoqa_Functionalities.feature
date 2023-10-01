@@ -14,9 +14,10 @@ Feature: User can logout / Search book / Add-Delete books / Change row number on
     Given user enters correct Password
     Given user should land on Dashboard
 
+
   Scenario: Verify that user can Logout
     And user click logout Button
-    And user sees "Login in Book Store"
+    Then user sees "Login in Book Store"
 
   Scenario: Verify that user can Search book
     When  user types "Git Pocket Guide" on Search Name Area

@@ -44,7 +44,7 @@ public class login_StepDefinitions {
         actions.moveToElement(element);
         actions.perform();*/
         wait.until(ExpectedConditions.elementToBeClickable(login.loginSubmodule));
-        BrowserUtils.scrollToElement(login.scroll);
+        BrowserUtils.scrollToElement(login.loginSubmodule);
         login.loginSubmodule.click();
     }
     @And("user enters correct Username")
@@ -59,6 +59,7 @@ public class login_StepDefinitions {
     }
     @And("user click login Button")
     public void userClickLoginButton() {
+        BrowserUtils.scrollToElement(login.loginButton);
         login.loginButton.click();
     }
     @Then("user should land on Dashboard")

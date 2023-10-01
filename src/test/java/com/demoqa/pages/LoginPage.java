@@ -10,8 +10,6 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-0']")
-    public WebElement scroll;
-    @FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-0']")
     public WebElement loginSubmodule;
     @FindBy(xpath = "//input[@id='userName']")
     public WebElement inputUsername;
