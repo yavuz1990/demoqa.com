@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -57,14 +58,16 @@ public class login_StepDefinitions {
         String password = ConfigurationReader.getProperty("password");
         login.inputPassword.sendKeys(password);
     }
-    @And("user click login Button")
+     @And("user click login Button")
     public void userClickLoginButton() {
         BrowserUtils.scrollToElement(login.loginButton);
         login.loginButton.click();
     }
     @Then("user should land on Dashboard")
-    public void user_should_land_on_dashboard() {
-        login.loginButton.click();
+    public void user_should_land_on_dashboard() throws InterruptedException {
+        String actualUserName = login.actualUser.getText();
+        String expectedUserName = "deneme1234";
+        Assert.assertEquals(expectedUserName,actualUserName);
     }
 
 

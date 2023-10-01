@@ -30,6 +30,8 @@ public class FunctionalitiesPage {
     public WebElement addToYourCollection;
     @FindBy(xpath = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']")
     public WebElement profileSubModule;
+    //a[normalize-space()='Git Pocket Guide']
+
 
 
 }

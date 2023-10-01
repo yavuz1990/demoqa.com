@@ -18,4 +18,6 @@ public class LoginPage {
     public WebElement inputPassword;
     @FindBy(xpath = "//button[@id='login']")
     public WebElement loginButton;
+    @FindBy(xpath = "//label[@id='userName-value']")
+    public WebElement actualUser;
 }
