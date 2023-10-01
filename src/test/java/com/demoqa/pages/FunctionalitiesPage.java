@@ -16,5 +16,20 @@ public class FunctionalitiesPage {
     public WebElement text1;
     @FindBy(xpath = "//div[@class='o_loading']")
     public WebElement loading_Bar;
+    @FindBy(xpath = "//input[@id='searchBox']")
+    public WebElement searchArea;
+    @FindBy(xpath = "//span[@id='basic-addon2']//span//*[name()='svg']")
+    public WebElement searchButton;
+    @FindBy(xpath = "//a[normalize-space()='Git Pocket Guide']")
+    public WebElement text2;
+    @FindBy(xpath = "//button[@id='gotoStore']")
+    public WebElement GoToBookStoreButton;
+    @FindBy(xpath = "//a[normalize-space()='Git Pocket Guide']")
+    public WebElement choose1;
+    @FindBy(xpath = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']")
+    public WebElement addToYourCollection;
+    @FindBy(xpath = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']")
+    public WebElement profileSubModule;
+
 
 }

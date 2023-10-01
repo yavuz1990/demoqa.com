@@ -8,4 +8,5 @@ Feature: User can Login
     And user clicks to loginSubmodule Button
     And  user enters correct Username
     And  user enters correct Password
+    And user click login Button
     Then user should land on Dashboard

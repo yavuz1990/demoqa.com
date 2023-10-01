@@ -15,7 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import com.demoqa.utilities.BrowserUtils;
 import java.time.Duration;
 
 
@@ -44,6 +44,7 @@ public class login_StepDefinitions {
         actions.moveToElement(element);
         actions.perform();*/
         wait.until(ExpectedConditions.elementToBeClickable(login.loginSubmodule));
+        BrowserUtils.scrollToElement(login.scroll);
         login.loginSubmodule.click();
     }
     @And("user enters correct Username")
@@ -56,10 +57,15 @@ public class login_StepDefinitions {
         String password = ConfigurationReader.getProperty("password");
         login.inputPassword.sendKeys(password);
     }
+    @And("user click login Button")
+    public void userClickLoginButton() {
+
+    }
     @Then("user should land on Dashboard")
     public void user_should_land_on_dashboard() {
         login.loginButton.click();
     }
+
 
 
 }

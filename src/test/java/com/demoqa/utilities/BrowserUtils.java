@@ -1,6 +1,8 @@
 package com.demoqa.utilities;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import java.util.Set;
 
@@ -52,5 +54,8 @@ for given duration
 
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
 
+    }
+ public static void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }

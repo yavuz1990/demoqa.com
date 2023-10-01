@@ -28,40 +28,44 @@ public class Functionalities_StepDefinitions {
 
     @When("user types {string} on Search Name Area")
     public void user_types_on_search_name_area(String string) {
-       /* wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.loading_Bar));
-        functionalitiesPage.vehicle_Field.click();
+        wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.loading_Bar));
+        functionalitiesPage.searchArea.click();
         //Thread.sleep(3000);
         wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.loading_Bar));
-        functionalitiesPage.vehicle_Field.sendKeys(string);
-        //Thread.sleep(3000);
-        wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.loading_Bar));
-        functionalitiesPage.vehicle_Field.sendKeys(Keys.ENTER);*/
+        functionalitiesPage.searchArea.sendKeys(string);
+
     }
     @When("user clicks Search Button")
     public void user_clicks_search_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.searchButton));
+        functionalitiesPage.searchButton.click();
     }
     @Then("user sees {string} on Title Area in Book Store Page")
-    public void user_sees_on_title_area_in_book_store_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_sees_on_title_area_in_book_store_page(String expected) {
+        String actual=functionalitiesPage.text2.getText();
+        Assert.assertEquals(expected,actual);
     }
 
     @When("user clicks Go To Book Store Button")
     public void user_clicks_go_to_book_store_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    //Roll down
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.GoToBookStoreButton));
+        functionalitiesPage.GoToBookStoreButton.click();
     }
     @When("user click {string} Book")
     public void user_click_book(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.choose1));
+        functionalitiesPage.choose1.click();
     }
     @When("user click Add To Your Collection Button")
     public void user_click_add_to_your_collection_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    //Roll down
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.addToYourCollection));
+        functionalitiesPage.addToYourCollection.click();
     }
     @When("user sees {string} pop-up message1")
     public void user_sees_pop_up_message1(String string) {
@@ -75,8 +79,10 @@ public class Functionalities_StepDefinitions {
     }
     @When("user click Profile SubModule Button")
     public void user_click_profile_sub_module_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //Roll down
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.addToYourCollection));
+        functionalitiesPage.addToYourCollection.click();
     }
     @Then("user sees {string} on Title Area in Profile Page")
     public void user_sees_on_title_area_in_profile_page(String string) {
