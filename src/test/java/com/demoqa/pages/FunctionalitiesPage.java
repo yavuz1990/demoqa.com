@@ -38,7 +38,7 @@ public class FunctionalitiesPage {
     public WebElement rowMoreButton;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[2]/span[2]/select/option[2]")
     public WebElement rowMoreButton10;
-    @FindBy(xpath = "//select[@aria-label='rows per page']")
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[2]/span[2]/select/option[2]")
     public WebElement text4;
 
 

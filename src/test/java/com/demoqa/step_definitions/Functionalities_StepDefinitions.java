@@ -113,20 +113,34 @@ public class Functionalities_StepDefinitions {
         functionalitiesPage.deleteIcon.click();
     }
     @When("user sees {string} pop-up message2")
-    public void user_sees_pop_up_message2(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_sees_pop_up_message2(String string) throws InterruptedException {
+        Thread.sleep(2000);//wait ile değiştir
+        Alert alert = getDriver().switchTo().alert();
+        Thread.sleep(2000);//wait ile değiştir
+        String popupMessage = alert.getText();
+        System.out.println("Popup Message: " + popupMessage);
     }
     @When("user click OK Button2")
-    public void user_click_ok_button2() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_click_ok_button2() throws InterruptedException {
+        Thread.sleep(2000);//wait ile değiştir
+        Alert alert = getDriver().switchTo().alert();
+        Thread.sleep(2000);//wait ile değiştir
+        alert.accept();
     }
     @And("user sees {string} pop-up message3")
-    public void userSeesPopUpMessage(String arg0, int arg1) {
+    public void userSeesPopUpMessage(String arg0, int arg1) throws InterruptedException {
+        Thread.sleep(2000);//wait ile değiştir
+        Alert alert = getDriver().switchTo().alert();
+        Thread.sleep(2000);//wait ile değiştir
+        String popupMessage = alert.getText();
+        System.out.println("Popup Message: " + popupMessage);
     }
     @And("user click OK Button3")
-    public void userClickOKButton() {
+    public void userClickOKButton() throws InterruptedException {
+        Thread.sleep(2000);//wait ile değiştir
+        Alert alert = getDriver().switchTo().alert();
+        Thread.sleep(2000);//wait ile değiştir
+        alert.accept();
     }
     @Then("user sees that the book was deleted")
     public void user_sees_that_the_book_was_deleted() {

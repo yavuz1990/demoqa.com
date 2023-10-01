@@ -3,16 +3,10 @@ package com.demoqa.step_definitions;
 import com.demoqa.pages.LoginPage;
 import com.demoqa.utilities.ConfigurationReader;
 import com.demoqa.utilities.Driver;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -71,9 +65,15 @@ public class login_StepDefinitions {
     }
 
 
-    @And("user enters incorrect Username")
+    @And("user enters invalid username")
     public void userEntersIncorrectUsername() {
-        String userName = ConfigurationReader.getProperty("username");
-        login.inputUsername.sendKeys(userName);
+        String invalidUserName = ConfigurationReader.getProperty("invalidusername");
+        login.inputUsername.sendKeys(invalidUserName);
+    }
+
+    @And("user enters invalid password")
+    public void userEntersIncorrectPassword() {
+        String invalidPassword = ConfigurationReader.getProperty("invalidpassword");
+        login.inputPassword.sendKeys(invalidPassword);
     }
 }

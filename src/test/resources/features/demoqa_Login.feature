@@ -11,10 +11,11 @@ Feature: User can Login
     And user click login Button
     Then user should land on Dashboard
 
+
   Scenario: Verify that user can not Login
     When user goes to Book Store Page Without Login
     And user clicks to loginSubmodule Button
-    And  user enters incorrect Username
-    And  user enters incorrect Password
+    And  user enters invalid username
+    And  user enters invalid password
     And user click login Button
     Then user should not land on Dashboard
