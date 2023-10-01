@@ -44,8 +44,9 @@ public class Functionalities_StepDefinitions {
         functionalitiesPage.searchButton.click();
     }
     @Then("user does not see {string} on Title Area in Book Store Page")
-    public void userDoesNotSeeOnTitleAreaInBookStorePage(String arg0) {
-
+    public void userDoesNotSeeOnTitleAreaInBookStorePage(String expected) {
+        String actual=functionalitiesPage.text2.getText();
+        Assert.assertNotEquals(expected,actual);
     }
     @Then("user sees {string} on Title Area in Book Store Page")
     public void user_sees_on_title_area_in_book_store_page(String expected) {
@@ -126,13 +127,17 @@ public class Functionalities_StepDefinitions {
 
     @When("user clicks Rows More Button")
     public void user_clicks_rows_more_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.rowMoreButton));
+        BrowserUtils.scrollToElement(functionalitiesPage.rowMoreButton);
+        functionalitiesPage.rowMoreButton.click();
     }
     @When("user click {string}")
     public void user_click(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.rowMoreButton10));
+        BrowserUtils.scrollToElement(functionalitiesPage.rowMoreButton10);
+        functionalitiesPage.rowMoreButton10.click();
     }
     @Then("user sees {string} on the row number area")
     public void user_sees_on_the_row_number_area(String string) {

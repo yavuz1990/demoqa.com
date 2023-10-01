@@ -34,7 +34,10 @@ public class FunctionalitiesPage {
     public WebElement text3;
     @FindBy(xpath = "//*[name()='path' and contains(@d,'M864 256H7')]")
     public WebElement deleteIcon;
-    //input[@value='1']
+    @FindBy(xpath = "//select[@aria-label='rows per page']")
+    public WebElement rowMoreButton;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[2]/span[2]/select/option[2]")
+    public WebElement rowMoreButton10;
 
 
 
