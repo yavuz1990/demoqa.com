@@ -2,6 +2,7 @@ package com.demoqa.step_definitions;
 
 import com.demoqa.pages.FunctionalitiesPage;
 import com.demoqa.pages.LoginPage;
+import com.demoqa.utilities.BrowserUtils;
 import com.demoqa.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -49,9 +50,9 @@ public class Functionalities_StepDefinitions {
 
     @When("user clicks Go To Book Store Button")
     public void user_clicks_go_to_book_store_button() {
-    //Roll down
         //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.GoToBookStoreButton));
+        BrowserUtils.scrollToElement(functionalitiesPage.GoToBookStoreButton);
         functionalitiesPage.GoToBookStoreButton.click();
     }
     @When("user click {string} Book")
@@ -65,6 +66,7 @@ public class Functionalities_StepDefinitions {
     //Roll down
         //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.addToYourCollection));
+        BrowserUtils.scrollToElement(functionalitiesPage.addToYourCollection);
         functionalitiesPage.addToYourCollection.click();
     }
     @When("user sees {string} pop-up message1")
@@ -79,10 +81,10 @@ public class Functionalities_StepDefinitions {
     }
     @When("user click Profile SubModule Button")
     public void user_click_profile_sub_module_button() {
-        //Roll down
         //Thread.sleep(5000);
-        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.addToYourCollection));
-        functionalitiesPage.addToYourCollection.click();
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.profileSubModule));
+        BrowserUtils.scrollToElement(functionalitiesPage.profileSubModule);
+        functionalitiesPage.profileSubModule.click();
     }
     @Then("user sees {string} on Title Area in Profile Page")
     public void user_sees_on_title_area_in_profile_page(String string) {
