@@ -12,6 +12,7 @@ Feature: User can logout / Search book / Add-Delete books / Change row number on
     Given user clicks to loginSubmodule Button
     Given user enters correct Username
     Given user enters correct Password
+    Given user click login Button
     Given user should land on Dashboard
 
 
@@ -31,7 +32,9 @@ Feature: User can logout / Search book / Add-Delete books / Change row number on
     And user sees "Book added to your collection." pop-up message1
     And user click OK Button1
     And user click Profile SubModule Button
-    Then user sees "Git Pocket Guide" on Title Area in Profile Page
+    And  user types "Git Pocket Guide" on Search Name Area
+    And user clicks Search Button
+    Then user sees "Git Pocket Guide" on Title Area in Book Store Page
 
   Scenario: Verify that user can Delete books
     When  user clicks Delete Icon
@@ -39,7 +42,9 @@ Feature: User can logout / Search book / Add-Delete books / Change row number on
     And user click OK Button2
     And user sees "Book deleted." pop-up message3
     And user click OK Button3
-    Then user sees that the book was deleted
+    And  user types "Git Pocket Guide" on Search Name Area
+    And user clicks Search Button
+    Then user does not see "Git Pocket Guide" on Title Area in Book Store Page
 
   Scenario: Verify that user can Change row number on profile page
     When  user clicks Rows More Button

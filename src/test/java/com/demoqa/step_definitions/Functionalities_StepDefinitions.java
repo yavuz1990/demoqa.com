@@ -17,6 +17,7 @@ import java.time.Duration;
 public class Functionalities_StepDefinitions {
     FunctionalitiesPage functionalitiesPage=new FunctionalitiesPage();
     WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+    int totalNumber;
     @When("user click logout Button")
     public void user_click_logout_button() {
       functionalitiesPage.logoutButton.click();
@@ -41,6 +42,10 @@ public class Functionalities_StepDefinitions {
         //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.searchButton));
         functionalitiesPage.searchButton.click();
+    }
+    @Then("user does not see {string} on Title Area in Book Store Page")
+    public void userDoesNotSeeOnTitleAreaInBookStorePage(String arg0) {
+
     }
     @Then("user sees {string} on Title Area in Book Store Page")
     public void user_sees_on_title_area_in_book_store_page(String expected) {
@@ -87,15 +92,15 @@ public class Functionalities_StepDefinitions {
         functionalitiesPage.profileSubModule.click();
     }
     @Then("user sees {string} on Title Area in Profile Page")
-    public void user_sees_on_title_area_in_profile_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_sees_on_title_area_in_profile_page(String expected) {
+        String actual=functionalitiesPage.text3.getText();
+        Assert.assertEquals(expected,actual);
     }
 
     @When("user clicks Delete Icon")
     public void user_clicks_delete_icon() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.deleteIcon));
+        functionalitiesPage.deleteIcon.click();
     }
     @When("user sees {string} pop-up message2")
     public void user_sees_pop_up_message2(String string) {
@@ -134,4 +139,6 @@ public class Functionalities_StepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
+
 }

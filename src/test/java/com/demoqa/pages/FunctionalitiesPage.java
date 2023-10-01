@@ -30,7 +30,11 @@ public class FunctionalitiesPage {
     public WebElement addToYourCollection;
     @FindBy(xpath = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']")
     public WebElement profileSubModule;
-    //a[normalize-space()='Git Pocket Guide']
+    @FindBy(xpath = "//a[normalize-space()='Git Pocket Guide']")
+    public WebElement text3;
+    @FindBy(xpath = "//*[name()='path' and contains(@d,'M864 256H7')]")
+    public WebElement deleteIcon;
+    //input[@value='1']
 
 
 
