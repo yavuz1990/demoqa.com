@@ -28,7 +28,7 @@ public class FunctionalitiesPage {
     public WebElement choose1;
     @FindBy(xpath = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']")
     public WebElement addToYourCollection;
-    @FindBy(xpath = "//div[@class='text-right fullButton']//button[@id='addNewRecordButton']")
+    @FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-3']")
     public WebElement profileSubModule;
     @FindBy(xpath = "//a[normalize-space()='Git Pocket Guide']")
     public WebElement text3;
@@ -38,6 +38,8 @@ public class FunctionalitiesPage {
     public WebElement rowMoreButton;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[2]/span[2]/select/option[2]")
     public WebElement rowMoreButton10;
+    @FindBy(xpath = "//select[@aria-label='rows per page']")
+    public WebElement text4;
 
 
 

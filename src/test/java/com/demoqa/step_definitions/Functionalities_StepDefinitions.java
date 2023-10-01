@@ -30,10 +30,8 @@ public class Functionalities_StepDefinitions {
 
     @When("user types {string} on Search Name Area")
     public void user_types_on_search_name_area(String string) {
-        wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.loading_Bar));
+        wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.searchArea));
         functionalitiesPage.searchArea.click();
-        //Thread.sleep(3000);
-        wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.loading_Bar));
         functionalitiesPage.searchArea.sendKeys(string);
 
     }
@@ -140,9 +138,11 @@ public class Functionalities_StepDefinitions {
         functionalitiesPage.rowMoreButton10.click();
     }
     @Then("user sees {string} on the row number area")
-    public void user_sees_on_the_row_number_area(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_sees_on_the_row_number_area(String expected) {
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.text4));
+        BrowserUtils.scrollToElement(functionalitiesPage.text4);
+        String actual=functionalitiesPage.text4.getText();
+        Assert.assertEquals(expected,actual);
     }
 
 
