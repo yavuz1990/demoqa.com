@@ -59,7 +59,7 @@ public class login_StepDefinitions {
     }
     @And("user click login Button")
     public void userClickLoginButton() {
-
+        login.loginButton.click();
     }
     @Then("user should land on Dashboard")
     public void user_should_land_on_dashboard() {
