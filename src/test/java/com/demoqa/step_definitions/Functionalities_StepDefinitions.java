@@ -8,15 +8,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+
+import static com.demoqa.utilities.Driver.getDriver;
+
 public class Functionalities_StepDefinitions {
     FunctionalitiesPage functionalitiesPage=new FunctionalitiesPage();
-    WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+    WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(15));
     int totalNumber;
     @When("user click logout Button")
     public void user_click_logout_button() {
@@ -30,8 +34,9 @@ public class Functionalities_StepDefinitions {
 
     @When("user types {string} on Search Name Area")
     public void user_types_on_search_name_area(String string) {
-        wait.until(ExpectedConditions.invisibilityOf(functionalitiesPage.searchArea));
+        wait.until(ExpectedConditions.visibilityOf(functionalitiesPage.searchArea));
         functionalitiesPage.searchArea.click();
+        wait.until(ExpectedConditions.visibilityOf(functionalitiesPage.searchArea));
         functionalitiesPage.searchArea.sendKeys(string);
 
     }
@@ -74,14 +79,20 @@ public class Functionalities_StepDefinitions {
         functionalitiesPage.addToYourCollection.click();
     }
     @When("user sees {string} pop-up message1")
-    public void user_sees_pop_up_message1(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_sees_pop_up_message1(String string) throws InterruptedException {
+        Thread.sleep(2000);//wait ile değiştir
+        Alert alert = getDriver().switchTo().alert();
+        Thread.sleep(2000);//wait ile değiştir
+        String popupMessage = alert.getText();
+        System.out.println("Popup Message: " + popupMessage);
+
     }
     @When("user click OK Button1")
-    public void user_click_ok_button1() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_click_ok_button1() throws InterruptedException {
+        Thread.sleep(2000);//wait ile değiştir
+        Alert alert = getDriver().switchTo().alert();
+        Thread.sleep(2000);//wait ile değiştir
+        alert.accept();
     }
     @When("user click Profile SubModule Button")
     public void user_click_profile_sub_module_button() {

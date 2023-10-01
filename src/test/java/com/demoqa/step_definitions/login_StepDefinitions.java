@@ -71,5 +71,9 @@ public class login_StepDefinitions {
     }
 
 
-
+    @And("user enters incorrect Username")
+    public void userEntersIncorrectUsername() {
+        String userName = ConfigurationReader.getProperty("username");
+        login.inputUsername.sendKeys(userName);
+    }
 }
