@@ -36,7 +36,6 @@ public class login_StepDefinitions {
     }
     @And("user enters correct Username")
     public void user_enters_correct_username()  {
-        //Thread.sleep(5);
         wait.until(ExpectedConditions.visibilityOf(login.inputUsername));
         String userName = ConfigurationReader.getProperty("username");
         login.inputUsername.sendKeys(userName);
@@ -52,7 +51,7 @@ public class login_StepDefinitions {
         login.loginButton.click();
     }
     @Then("user should land on Dashboard")
-    public void user_should_land_on_dashboard() throws InterruptedException {
+    public void user_should_land_on_dashboard()  {
         String actualUserName = login.actualUser.getText();
         String expectedUserName = "deneme1234";
         Assert.assertEquals(expectedUserName,actualUserName);
