@@ -20,32 +20,23 @@ public class login_StepDefinitions {
     LoginPage login=new LoginPage();
     WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
 
-    //WebElement element = driver.findElement(By.id("id_of_element"));
-    //WebElement element = getDriver().findElement(By.xpath("//div[@class='element-list collapse show']//li[@id='item-0']"));
-    //Faker faker=new Faker();
-
-
-
 
 
     @When("user goes to Book Store Page Without Login")
-    public void userGoesToBookStorePageWithoutLogin() throws InterruptedException { String url = ConfigurationReader.getProperty("env");
+    public void userGoesToBookStorePageWithoutLogin(){
+        String url = ConfigurationReader.getProperty("env");
         getDriver().get(url);
-        //Thread.sleep(5000);
 
     }
     @And("user clicks to loginSubmodule Button")
     public void user_clicks_to_login_submodule_button() {
-        /*Actions actions = new Actions(getDriver());
-        actions.moveToElement(element);
-        actions.perform();*/
         wait.until(ExpectedConditions.elementToBeClickable(login.loginSubmodule));
         BrowserUtils.scrollToElement(login.loginSubmodule);
         login.loginSubmodule.click();
     }
     @And("user enters correct Username")
-    public void user_enters_correct_username() throws InterruptedException {
-        Thread.sleep(5);
+    public void user_enters_correct_username()  {
+        //Thread.sleep(5);
         wait.until(ExpectedConditions.visibilityOf(login.inputUsername));
         String userName = ConfigurationReader.getProperty("username");
         login.inputUsername.sendKeys(userName);

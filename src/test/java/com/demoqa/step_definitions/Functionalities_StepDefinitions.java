@@ -34,7 +34,6 @@ public class Functionalities_StepDefinitions {
     }
     @When("user click Book Store Submodule")
     public void userClickBookStoreSubmodule() {
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.bookStoreSubModule));
         BrowserUtils.scrollToElement(functionalitiesPage.bookStoreSubModule);
         functionalitiesPage.bookStoreSubModule.click();
@@ -51,7 +50,6 @@ public class Functionalities_StepDefinitions {
     }
     @When("user clicks Search Button")
     public void user_clicks_search_button() {
-        //Thread.sleep(5000);
         try{
             wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.searchButton));
             functionalitiesPage.searchButton.click();}
@@ -66,7 +64,6 @@ public class Functionalities_StepDefinitions {
         catch (NoSuchElementException e) {
             actual = "";
         }
-        //String actual=functionalitiesPage.text2.getText();
         Assert.assertNotEquals(expected,actual);
     }
     @Then("user sees {string} on Title Area in Book Store Page")
@@ -77,21 +74,17 @@ public class Functionalities_StepDefinitions {
 
     @When("user clicks Go To Book Store Button")
     public void user_clicks_go_to_book_store_button() {
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.GoToBookStoreButton));
         BrowserUtils.scrollToElement(functionalitiesPage.GoToBookStoreButton);
         functionalitiesPage.GoToBookStoreButton.click();
     }
     @When("user click {string} Book")
     public void user_click_book(String string) {
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.choose1));
         functionalitiesPage.choose1.click();
     }
     @When("user click Add To Your Collection Button")
     public void user_click_add_to_your_collection_button() {
-        //Roll down
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.addToYourCollection));
         BrowserUtils.scrollToElement(functionalitiesPage.addToYourCollection);
         functionalitiesPage.addToYourCollection.click();
@@ -114,7 +107,6 @@ public class Functionalities_StepDefinitions {
     }
     @When("user click Profile SubModule Button")
     public void user_click_profile_sub_module_button() {
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.profileSubModule));
         BrowserUtils.scrollToElement(functionalitiesPage.profileSubModule);
         functionalitiesPage.profileSubModule.click();
@@ -138,20 +130,22 @@ public class Functionalities_StepDefinitions {
         }
     }
     @When("user sees {string} pop-up message2")
-    public void user_sees_pop_up_message2(String string) throws InterruptedException {
+    public void user_sees_pop_up_message2(String string)  {
         try{
-            Thread.sleep(1000);//wait ile değiştir
+            //Thread.sleep(1000);//wait ile değiştir
             System.out.println("Delete Message: " + functionalitiesPage.deleteText.getText());
         }
         catch(NoSuchElementException n){}
     }
     @When("user click OK Button2")
-    public void user_click_ok_button2() throws InterruptedException {
+    public void user_click_ok_button2()  {
         try{
             Thread.sleep(1000);//wait ile değiştir
             functionalitiesPage.deleteOK.click();
         }
-        catch(NoSuchElementException n){}
+        catch(NoSuchElementException n){} catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     @And("user sees {string} pop-up message3")
     public void userSeesPopUpMessage(String arg0) throws InterruptedException {
@@ -173,22 +167,16 @@ public class Functionalities_StepDefinitions {
         }
         catch (NoAlertPresentException a){}
     }
-    @Then("user sees that the book was deleted")
-    public void user_sees_that_the_book_was_deleted() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
 
     @When("user clicks Rows More Button")
     public void user_clicks_rows_more_button() {
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.rowMoreButton));
         BrowserUtils.scrollToElement(functionalitiesPage.rowMoreButton);
         functionalitiesPage.rowMoreButton.click();
     }
     @When("user click {string}")
     public void user_click(String string) {
-        //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.rowMoreButton10));
         BrowserUtils.scrollToElement(functionalitiesPage.rowMoreButton10);
         functionalitiesPage.rowMoreButton10.click();
