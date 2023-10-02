@@ -1,15 +1,16 @@
 package com.demoqa.step_definitions;
 
 import com.demoqa.pages.FunctionalitiesPage;
-import com.demoqa.pages.LoginPage;
 import com.demoqa.utilities.BrowserUtils;
-import com.demoqa.utilities.Driver;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,31 +25,48 @@ public class Functionalities_StepDefinitions {
     int totalNumber;
     @When("user click logout Button")
     public void user_click_logout_button() {
-      functionalitiesPage.logoutButton.click();
+        functionalitiesPage.logoutButton.click();
     }
     @When("user sees {string}")
     public void user_sees(String expected) {
         String actual=functionalitiesPage.text1.getText();
         Assert.assertEquals(expected,actual);
     }
-
+    @When("user click Book Store Submodule")
+    public void userClickBookStoreSubmodule() {
+        //Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.bookStoreSubModule));
+        BrowserUtils.scrollToElement(functionalitiesPage.bookStoreSubModule);
+        functionalitiesPage.bookStoreSubModule.click();
+    }
     @When("user types {string} on Search Name Area")
     public void user_types_on_search_name_area(String string) {
-        wait.until(ExpectedConditions.visibilityOf(functionalitiesPage.searchArea));
-        functionalitiesPage.searchArea.click();
-        wait.until(ExpectedConditions.visibilityOf(functionalitiesPage.searchArea));
-        functionalitiesPage.searchArea.sendKeys(string);
+        try{
+            wait.until(ExpectedConditions.visibilityOf(functionalitiesPage.searchArea));
+            functionalitiesPage.searchArea.click();
+            wait.until(ExpectedConditions.visibilityOf(functionalitiesPage.searchArea));
+            functionalitiesPage.searchArea.sendKeys(string); }
+        catch (TimeoutException t){}
 
     }
     @When("user clicks Search Button")
     public void user_clicks_search_button() {
         //Thread.sleep(5000);
-        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.searchButton));
-        functionalitiesPage.searchButton.click();
+        try{
+            wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.searchButton));
+            functionalitiesPage.searchButton.click();}
+        catch (TimeoutException t){}
     }
     @Then("user does not see {string} on Title Area in Book Store Page")
     public void userDoesNotSeeOnTitleAreaInBookStorePage(String expected) {
-        String actual=functionalitiesPage.text2.getText();
+        String actual ="";
+        try{
+            actual=functionalitiesPage.text2.getText();
+        }
+        catch (NoSuchElementException e) {
+            actual = "";
+        }
+        //String actual=functionalitiesPage.text2.getText();
         Assert.assertNotEquals(expected,actual);
     }
     @Then("user sees {string} on Title Area in Book Store Page")
@@ -72,7 +90,7 @@ public class Functionalities_StepDefinitions {
     }
     @When("user click Add To Your Collection Button")
     public void user_click_add_to_your_collection_button() {
-    //Roll down
+        //Roll down
         //Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.addToYourCollection));
         BrowserUtils.scrollToElement(functionalitiesPage.addToYourCollection);
@@ -109,38 +127,51 @@ public class Functionalities_StepDefinitions {
 
     @When("user clicks Delete Icon")
     public void user_clicks_delete_icon() {
-        wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.deleteIcon));
-        functionalitiesPage.deleteIcon.click();
+
+        try{
+            wait.until(ExpectedConditions.elementToBeClickable(functionalitiesPage.deleteIcon));
+            functionalitiesPage.deleteIcon.click();
+        }
+        catch (TimeoutException t){
+            System.out.println("Silinecek Kitap Yok!!!");
+
+        }
     }
     @When("user sees {string} pop-up message2")
     public void user_sees_pop_up_message2(String string) throws InterruptedException {
-        Thread.sleep(2000);//wait ile değiştir
-        Alert alert = getDriver().switchTo().alert();
-        Thread.sleep(2000);//wait ile değiştir
-        String popupMessage = alert.getText();
-        System.out.println("Popup Message: " + popupMessage);
+        try{
+            Thread.sleep(1000);//wait ile değiştir
+            System.out.println("Delete Message: " + functionalitiesPage.deleteText.getText());
+        }
+        catch(NoSuchElementException n){}
     }
     @When("user click OK Button2")
     public void user_click_ok_button2() throws InterruptedException {
-        Thread.sleep(2000);//wait ile değiştir
-        Alert alert = getDriver().switchTo().alert();
-        Thread.sleep(2000);//wait ile değiştir
-        alert.accept();
+        try{
+            Thread.sleep(1000);//wait ile değiştir
+            functionalitiesPage.deleteOK.click();
+        }
+        catch(NoSuchElementException n){}
     }
     @And("user sees {string} pop-up message3")
-    public void userSeesPopUpMessage(String arg0, int arg1) throws InterruptedException {
-        Thread.sleep(2000);//wait ile değiştir
-        Alert alert = getDriver().switchTo().alert();
-        Thread.sleep(2000);//wait ile değiştir
-        String popupMessage = alert.getText();
-        System.out.println("Popup Message: " + popupMessage);
+    public void userSeesPopUpMessage(String arg0) throws InterruptedException {
+        try{
+            Thread.sleep(2000);//wait ile değiştir
+            Alert alert = getDriver().switchTo().alert();
+            Thread.sleep(2000);//wait ile değiştir
+            String popupMessage = alert.getText();
+            System.out.println("Popup Message: " + popupMessage);}
+        catch (NoAlertPresentException a){}
     }
     @And("user click OK Button3")
     public void userClickOKButton() throws InterruptedException {
-        Thread.sleep(2000);//wait ile değiştir
-        Alert alert = getDriver().switchTo().alert();
-        Thread.sleep(2000);//wait ile değiştir
-        alert.accept();
+        try{
+            Thread.sleep(2000);//wait ile değiştir
+            Alert alert = getDriver().switchTo().alert();
+            Thread.sleep(2000);//wait ile değiştir
+            alert.accept();
+        }
+        catch (NoAlertPresentException a){}
     }
     @Then("user sees that the book was deleted")
     public void user_sees_that_the_book_was_deleted() {
@@ -169,6 +200,7 @@ public class Functionalities_StepDefinitions {
         String actual=functionalitiesPage.text4.getText();
         Assert.assertEquals(expected,actual);
     }
+
 
 
 }

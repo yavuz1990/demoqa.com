@@ -14,8 +14,6 @@ public class FunctionalitiesPage {
     public WebElement logoutButton;
     @FindBy(xpath = "//h5[normalize-space()='Login in Book Store']")
     public WebElement text1;
-    @FindBy(xpath = "//div[@class='o_loading']")
-    public WebElement loading_Bar;
     @FindBy(xpath = "//input[@id='searchBox']")
     public WebElement searchArea;
     @FindBy(xpath = "//span[@id='basic-addon2']//span//*[name()='svg']")
@@ -40,6 +38,13 @@ public class FunctionalitiesPage {
     public WebElement rowMoreButton10;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[2]/span[2]/select/option[2]")
     public WebElement text4;
+    @FindBy(xpath = "//div[@class='element-list collapse show']//li[@id='item-2']")
+    public WebElement bookStoreSubModule;
+    @FindBy(xpath = "//div[@class='modal-body']")
+    public WebElement deleteText;
+    @FindBy(xpath = "//button[@id='closeSmallModal-ok']")
+    public WebElement deleteOK;
+
 
 
 

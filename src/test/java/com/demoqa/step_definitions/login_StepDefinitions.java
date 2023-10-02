@@ -76,4 +76,12 @@ public class login_StepDefinitions {
         String invalidPassword = ConfigurationReader.getProperty("invalidpassword");
         login.inputPassword.sendKeys(invalidPassword);
     }
+
+    @Then("user should not land on Dashboard")
+    public void userShouldNotLandOnDashboard() {
+        String actualMessage = login.actualMessage.getText();
+        String expectedMessage = "Invalid username or password!";
+        Assert.assertEquals(expectedMessage,actualMessage);
+
+    }
 }

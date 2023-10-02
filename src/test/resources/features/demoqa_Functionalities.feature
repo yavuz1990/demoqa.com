@@ -21,6 +21,7 @@ Feature: User can logout / Search book / Add-Delete books / Change row number on
     Then user sees "Login in Book Store"
 
   Scenario: Verify that user can Search book
+    When user click Book Store Submodule
     When  user types "Git Pocket Guide" on Search Name Area
     And user clicks Search Button
     Then user sees "Git Pocket Guide" on Title Area in Book Store Page
@@ -50,4 +51,5 @@ Feature: User can logout / Search book / Add-Delete books / Change row number on
     When  user clicks Rows More Button
     And user click "10 rows"
     Then user sees "10 rows" on the row number area
+
 
